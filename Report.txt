@@ -1,17 +1,49 @@
 The report should contain the following:
 
 1. **Overview** of the analysis: Explain the purpose of this analysis.
+    The purpose of the analysis was to see if we could create a model that could successfully predict if an Alphabet Soup–funded organization will be successful or not.
 
-2. **Results**: Using bulleted lists and images to support your answers, address the following questions.
+2. **Results**:
 
   * Data Preprocessing
-    * What variable(s) are considered the target(s) for your model?
-    * What variable(s) are considered to be the features for your model?
-    * What variable(s) are neither targets nor features, and should be removed from the input data?
+    * What variable(s) are considered the target(s) for your model? 
+        The target/y is the binary classification of whether or not the campaign was successful.
+
+    * What variable(s) are considered to be the features for your model? The features were the rest of the columns including:
+        - APPLICATION_TYPE — Alphabet Soup application type
+        - AFFILIATION — Affiliated sector of industry
+        - CLASSIFICATION — Government organization classification
+        - USE_CASE — Use case for funding
+        - ORGANIZATION — Organization type
+        - STATUS — Active status
+        - INCOME_AMT — Income classification
+        - SPECIAL_CONSIDERATIONS — Special consideration for application
+        - ASK_AMT - Funding amount requested
+
+    * What variable(s) are neither targets nor features, and should be removed from the input data? 
+        The EIN and Name variables are identifiers and not needed in the input data. 
+
   * Compiling, Training, and Evaluating the Model
-    * How many neurons, layers, and activation functions did you select for your neural network model, and why?
     * Were you able to achieve the target model performance?
-    * What steps did you take to try and increase model performance?
+        No, I was not able to acheive the target model performance. 
+
+    * What steps did you take to try and increase model performance? How many neurons, layers, and activation functions did you select for your neural network model, and why?
+        I used various methods such as increasing/decreasing the number of hidden layers, nuerons, and changing the activation types. Since there were a lot of features in the dataset, 
+        I imagined that increasing the numbers of layers and/or nuerons would make the model more accurate but changing the activation type to "tanh" made it the most accurate.
+        Below is a summary of my different attempts:
+            1. Logistic Regression Testing Data Score: 0.4668221574344023
+            2. 3 Hidden Layers 20/20/20 neurons, relu activation, 100 epochs. Accuracy Score: 0.7259474992752075
+            3. 2 Hidden Layers 8/5 nuerons, relu activation, 100 epochs. Accuracy Score: 0.7254810333251953
+            4. 2 Hidden Layers 10/10 and activation type to tanh, 100 epochs. Accuracy Score: 0.7281632423400879
+            5: Removed 2nd layer, increased 1st layer to 150 and increased epochs to 500, relu activation. Accuracy Score: 0.7258309125900269
 
 3. **Summary**: Summarize the overall results of the deep learning model. Include a recommendation for how a different 
 model could solve this classification problem, and explain your recommendation.
+   The overall results show that the model is about 72% accurate at predicting if an Alphabet Soup–funded organization will be successful. I tried to run a logistic regression to see if that would give
+   better results because there were only two outcomes, but the logistic regression performed the worst with around 47% accuracy. I imagine that a nueral network would be successful with more tweaking of
+   the network variables.
+
+   Note: Once I had completed my attempts, I got with another classmate and she informed me that she was able to reach 75% accuracy by having 3 hidden layers with 400 nuerons, "relu" activations, 
+   and 50 epochs. I created a separate Jupyter notebook called "mindy_test" to see if I could replicate her results and was able to get an accuracy score of 0.7245481014251709. I'm not sure how
+   we could have the same set up but get different results. I definitely have a lot more to learn about deep learning but I look forward to getting 
+   more familiar with it. 
